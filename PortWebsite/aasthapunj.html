@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aastha Punj | Portfolio</title>
+    <style>
+		
+		.navbar {
+			position: fixed;        /* Keeps the navbar at the top */
+			top: 0;
+			right: 0;
+			background-color: #080707; /* Dark background color */
+			padding: 10px 20px;     /* Some padding around the navbar */
+			text-align:center;
+			z-index: 1000;          /* Makes sure it stays on top of other content */
+		}
+
+		.navbar ul {
+			list-style-type: none;  /* Removes the default list style */
+			margin: 0;
+			padding: 0;
+			display: flex;          /* Use flexbox to align items horizontally */
+		}
+
+		.navbar ul li {
+			margin-left: 20px;      /* Space between tabs */
+		}
+
+		.navbar ul li a {
+			color: white;           /* Text color */
+			text-decoration: none;  /* Remove underline */
+			font-size: 1.2rem;      /* Font size for the tabs */
+			padding: 10px 16px;      /* Space around the text */
+			margin:0 20px ;
+			display: inline-block;
+			font-weight: bold;
+			transition: background-color 0.3s; /* Smooth transition for hover effect */
+		}
+
+		.navbar ul li a:hover {
+			background-color: #555; /* Changes color on hover */
+			border-radius: 4px;     /* Rounded corners for the hover effect */
+		}
+
+		/* Add some padding to avoid the navbar overlapping content */
+		body {
+			padding-top: 60px; /* Adds space to the top to accommodate the fixed navbar */
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box; 
+		}
+		body, html {
+			margin: 0;
+			padding: 0;
+			min-height: 100%;
+		}
+
+        body {
+            /* font-family: 'Inter', sans-serif; */
+            margin: 0;
+            padding: 0;
+			min-height: 100vh;
+            /* background-color: #f1f1f1; */
+            /* color: #333; */
+            overflow-x: hidden;
+			/* box-sizing: border-box; */
+			background-image: url('https://img.freepik.com/free-vector/gradient-black-background-with-golden-textures_23-2149154118.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center center;
+			background-repeat: no-repeat;
+			height: 100%;
+			transition: background-color 2s ease-out;
+        }
+
+		body.loaded #content {
+			opacity: 1; /* Make the content visible */
+			transform: scale(1); /* Reset the scale to normal */
+			filter: blur(0); /* Remove the blur */
+		}
+
+		section {
+			text-align: center;
+			color: black;   /* Text color for better visibility */
+			padding: 100px 20px;
+			z-index: -1;
+		}
+
+        /* Parallax Effect */
+        .parallax {
+            /* background: url('https://i.pinimg.com/736x/01/30/93/0130936b2eea1b178b041251c974c013.jpg') no-repeat center center fixed; */
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			z-index: -1;
+        }
+
+        /* Container for text and image */
+        .intro-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .intro-img {
+            width: 250px;
+            height: auto;
+            border-radius: 50%;
+			margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(245, 243, 243, 0.3);
+        }
+
+        .intro-text h2 {
+            font-size: 50px;
+			text-align: left;
+            font-weight: 600;
+            margin: 20px;
+            color: rgb(249, 247, 247);
+        }
+
+        /* Skills Grid */
+        .skills {
+			padding: 70px 0;
+			font-size: 1.7rem;
+			background-color: #f9f9f9;
+			text-align: center;
+			overflow: hidden; /* Hide the overflow */
+		}
+
+		.skills-container {
+			display: flex; /* Flexbox for a single line of skill boxes */
+			animation: scrollSkills 20s linear infinite; /* Horizontal scroll animation */
+		}
+
+		.skill-box {
+			background-color: #333;
+			color: #f4f4f4;
+			padding: 10px 20px; /* Consistent padding */
+			margin: 30px 10px; /* Space between skill boxes */
+			border-radius: 5px;
+			box-shadow: 0 4px 10px rgba(230, 223, 223, 0.1);
+			font-size: 1rem; /* Smaller text size */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			white-space: nowrap; /* Ensure text doesn’t break into multiple lines */
+		}
+
+		/* Create the horizontal scroll animation */
+		@keyframes scrollSkills {
+			0% {
+				transform: translateX(0); /* Start at the original position */
+			}
+			100% {
+				transform: translateX(-50%); /* Scroll the width of half of the container to create a seamless effect */
+			}
+		}
+
+        .experience ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience ul li {
+            margin-bottom: 20px;
+			font-size: 1.5rem;
+			line-height: 1.5;
+        }
+
+		.contact-form {
+			background-color: #f4f4f4;
+			color: white;
+		}
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px 2px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+			position: relative;
+			z-index: 10;
+            padding: 12px 25px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            text-align: left;
+			
+        }
+		.container h2 {
+			font-size: 2.5rem; /* Adjust the font size as per your requirement */
+			text-align: center; /* If you want the heading centered */
+			margin-bottom: 0; /* Optional: Adds some space below the heading */
+			margin-top: 10px;
+			padding: 0px 20px;
+			
+		}
+
+		section{
+			margin: 20px;
+			padding: 20px;
+			min-height: 100%;
+		}
+
+		.about-me-container {
+			width: 80%;           /* Set the width of the section */
+			max-width: 1200px;    /* Prevents the section from being too wide */
+			margin: 20px auto;       /* Centers the section */
+			padding: 40px;        /* Adds padding inside */
+			text-align: center;   /* Centers the content inside the section */
+			font-size: 1.5rem;
+			line-height: 1.5;
+		}
+
+		.work-experience {
+			padding: 60px 0;
+			background-color: #f4f4f4;
+			text-align: center;
+		}
+
+		.work-experience h2 {
+			font-size: 2.5rem;
+			font-weight: bold;
+			margin-bottom: 40px;
+		}
+
+		/* Container to hold the experience cards */
+		.experience-container {
+			display: flex;
+			flex-wrap: wrap; /* Allows wrapping of cards if the screen is small */
+			justify-content: center;
+			gap: 30px; /* Space between the cards */
+		}
+
+		/* Style for each experience card */
+		.experience-card {
+			background-color: #ffffff;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			width: 300px; /* You can adjust this width */
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			text-align: left;
+			/* background-image: url(https://media.istockphoto.com/id/1337668467/vector/modern-rainbow-glow-backlight-frame.jpg?s=612x612&w=0&k=20&c=xbuNlYJsMRHstRLRkJyAW_eDaYLE6sXjQoFFo1tmFSo=); */
+			/* background-size: cover; */
+			/* background-repeat: no-repeat; */
+			box-shadow: 0 0 20px rgba(2, 22, 49, 0.5), /* Red */
+                0 0 20px rgba(8, 0, 15, 0.5), /* Green */
+                0 0 20px rgba(12, 12, 99, 0.5), /* Blue */
+                0 0 20px rgba(105, 12, 43, 0.5); /* Yellow */
+    		transition: box-shadow 0.3s ease; /* Optional: smooth transition on hover */
+			/* color: white; */
+		}
+
+		/* Hover effect for experience cards */
+		.experience-card:hover {
+			/* transform: translateY(-10px); /* Slight lift effect */
+			/* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+
+			box-shadow: 
+				0 0 30px rgb(246, 238, 238), /* Red */
+                0 0 30px rgb(5, 34, 5), /* Green */
+                0 0 30px rgb(9, 2, 19), /* Blue */
+                0 0 30px rgb(13, 1, 23); /* Yellow */
+		}
+
+		.experience-card h3 {
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+		}
+
+		.experience-card p {
+			font-size: 1rem;
+			margin-bottom: 10px;
+		}
+
+		.experience-card ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
+
+		.experience-card ul li {
+			font-size: 0.9rem;
+			margin-bottom: 10px;
+		}
+
+		.projects-container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr); /*Ensure only 2 columns per row*/
+			gap: 20px; /* Space between the boxes */
+			margin-top: 20px;
+			justify-items: center;
+			align-items: center;
+			}
+		.projects {
+			background-color: #f4f4f4;
+			padding: 60px 20px;
+			text-align: center;
+		}
+
+		.projects h2 {
+			font-size: 2.5rem;
+			margin-bottom: 30px;
+			font-weight: bold;
+		}
+
+		/* Flexbox Layout for Project Cards */
+		.projects {
+			display: flex;
+			justify-content: space-around;  /* Distribute space evenly */
+			flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+			align-items: center;
+			
+		}
+
+		.project-card {
+			flex: 0 1 20%; /* Take up 20% of the available space, but not more */
+			margin: 10px;
+			padding: 20px;
+			background-color: white;
+			border-radius: px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			box-sizing: border-box;
+			width: 90%;
+			height: 620px;
+			
+		}
+
+		.project-card img {
+			width: 70%;
+			height: 210px;
+			border-radius: 8px;
+		}
+
+		.project-card h3 {
+			font-size: 1.8rem;
+			margin-top: 15px;
+		}
+
+		.project-card p {
+			font-size: 1rem;
+			color: #555;
+			margin: 10px 0;
+		}
+
+		.project-card .project-link {
+			text-decoration: none;
+			font-weight: bold;
+			color: #007BFF;
+			margin-top: 10px;
+			display: inline-block;
+		}
+
+		.project-card .project-link:hover {
+			text-decoration: underline;
+		}
+		.projects-heading {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 20px; /* Adds space between the heading and the projects */
+			padding: 100px 0px;
+			margin-top: 50px;
+		}
+		
+
+		/* Responsive Layout for Small Screens */
+		@media (max-width: 768px) {
+			.project-card {
+				flex: 0 1 100%; /* Stack the cards on small screens */
+			}
+		}
+
+		.typing {
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 1.5rem;
+			color: white;
+			white-space: nowrap; /* Prevents text from wrapping to the next line */
+			overflow: hidden; /* Hides the overflowing text */
+			border-right: 3px solid #f6faf6; /* Simulates the cursor */
+			width: 0; /* Start with zero width */
+			animation: typing 4s steps(40) 1s forwards, blink 0.75s step-end infinite; /* Typing and blinking cursor effect */
+		}
+
+		/* Animation for typing effect */
+		@keyframes typing {
+			0% {
+				width: 0;
+			}
+			100% {
+				width: 100%;
+			}
+		}
+
+		/* Blinking cursor */
+		@keyframes blink {
+			50% {
+				border-color: transparent;
+			}
+		}
+
+		
+    </style>
+</head>
+<body>
+	<nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#work-experience">Work Experience</a></li>
+			<li><a href="#projects">My Projects</a></li>
+			<li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+	
+
+<header>
+    <!-- <h1>Aastha Punj</h1> -->
+</header>
+
+<div class="parallax">
+    <div class="intro-text">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQE_fYqrqAqlRA/profile-displayphoto-shrink_800_800/B56ZTtMeGIHoAc-/0/1739146258115?e=1745452800&v=beta&t=_H4Wok4TDm6ZwNWAiQoBMLASKmmFdec23XSC3hchvq0" alt="Aastha Punj" class="intro-img">
+		<div class="intro-text">
+            <h2 class ="typing">Hi, I'm Aastha!</h2>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="about-me-container">
+		<section id="about" class="about-me-container"></section>
+        <h2>About Me</h2>
+        <p>Hi, I’m Aastha Punj, a software developer in the making, blending code with creativity and problem-solving. Currently studying Computer Science at Wilfrid Laurier University, I specialize in Python, Java, and C++, but I’m all about using the right tools for the job, whether that’s diving deep into data structures or crafting seamless web experiences. When I’m not debugging code or teaching others how to build with it, you’ll find me creating engaging content (yep, I’ve been featured in the UN Youth Climate Report). From taking on research projects to leading social media strategies, I’m always pushing boundaries and embracing new challenges. Let’s connect!</p>
+    </div>
+</section>
+
+<section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-box">Eclipse</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">C++</div>
+        <div class="skill-box">VBA</div>
+        <div class="skill-box">MS Office Suite</div>
+        <div class="skill-box">Web Development</div>
+        <div class="skill-box">Data Structures</div>
+        <div class="skill-box">OOP Principles</div>
+        <div class="skill-box">Debugging</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Video Editing</div>
+        <!-- More skill boxes can go here -->
+		<div class="skill-box">Eclipse</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">C++</div>
+        <div class="skill-box">VBA</div>
+        <div class="skill-box">MS Office Suite</div>
+        <div class="skill-box">Web Development</div>
+        <div class="skill-box">Data Structures</div>
+        <div class="skill-box">OOP Principles</div>
+        <div class="skill-box">Debugging</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Video Editing</div>
+		<div class="skill-box">Eclipse</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">C++</div>
+        <div class="skill-box">VBA</div>
+        <div class="skill-box">MS Office Suite</div>
+        <div class="skill-box">Web Development</div>
+        <div class="skill-box">Data Structures</div>
+        <div class="skill-box">OOP Principles</div>
+        <div class="skill-box">Debugging</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Video Editing</div>
+		<div class="skill-box">Eclipse</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">C++</div>
+        <div class="skill-box">VBA</div>
+        <div class="skill-box">MS Office Suite</div>
+        <div class="skill-box">Web Development</div>
+        <div class="skill-box">Data Structures</div>
+        <div class="skill-box">OOP Principles</div>
+        <div class="skill-box">Debugging</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Video Editing</div>
+		<div class="skill-box">Eclipse</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">C++</div>
+        <div class="skill-box">VBA</div>
+        <div class="skill-box">MS Office Suite</div>
+        <div class="skill-box">Web Development</div>
+        <div class="skill-box">Data Structures</div>
+        <div class="skill-box">OOP Principles</div>
+        <div class="skill-box">Debugging</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Video Editing</div>
+    </div>
+</section>
+
+
+<section class="experience">
+    <div class="container">
+		<section id="work-experience" class="work-experience">
+			<h2>Work Experience</h2>
+			<div class="experience-container">
+				<div class="experience-card">
+					<h3 style="text-align: center;">Research Assistant</h3>
+					<p style="font-style: italic; text-align: center;">The Tshepo Institute, Waterloo, ON</p>
+					<p><strong>Location:</strong> Waterloo, ON</p>
+					<p><strong>Date:</strong> October 2024 – Present</p>
+					<ul>
+						<li> • Conducted interviews with panelists on Zoom and Teams.</li>
+						<li> • Applied AI-driven research methods to develop engaging content.</li>
+						<li> • Leveraged software and tools to produce high-quality content.</li>
+					</ul>
+				</div>
+				<div class="experience-card">
+					<h3 style="text-align: center;">Computer Science Instructional Assistant</h3>
+					<p style="font-style: italic; text-align: center;"> Wilfrid Laurier University</p>
+					<p><strong>Location:</strong> Waterloo, ON</p>
+					<p><strong>Date:</strong> September 2024 – Present</p>
+					<ul>
+						<li> • Led Python and Java programming lab sessions.</li>
+						<li> • Assisted students in troubleshooting and improving code.</li>
+						<li> • Explained object-oriented design concepts and coding principles.</li>
+					</ul>
+				</div>
+				<div class="experience-card">
+					<h3 style="text-align: center;">Social Media Coordinator</h3>
+					<p style="font-style: italic; text-align: center;"> World University Service of Canada (WUSC), Wilfrid Laurier University</p>
+					<p><strong>Location:</strong> Waterloo, ON</p>
+					<p><strong>Date:</strong> September 2024 – Present</p>
+					<ul>
+						<li> • Developed data-driven digital strategies.</li>
+						<li> • Analyzed audience engagement data to optimize content.</li>
+						<li> • Enhanced WUSC's digital presence through web development and social media.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+<section id="projects">
+	<h2 class ="projects-heading">My Projects</h2>
+
+	<!-- Project 1 -->
+	<div class="projects-container">
+		<div class="project-card">
+		<img src="https://images.stockcake.com/public/5/4/5/54590dad-6363-4c8e-89f8-d0bb751a5a15_large/neon-calculator-interface-stockcake.jpg" >
+		<h3>Calculator</h3>
+		<p>I created a simple yet functional calculator using JavaScript, HTML, and CSS. The project features basic arithmetic operations, including addition, subtraction, multiplication, and division. It showcases my ability to combine core web technologies to build a responsive and interactive application, with an emphasis on usability and design.</p>
+		<a href="http://127.0.0.1:5500/calculator.html" target="_blank" class="project-link">View Project</a>
+	</div>
+
+
+	<!-- Project 2 -->
+	<div class="project-card">
+		<img src="https://i.pinimg.com/736x/75/f8/54/75f854429b7ab426020eb28dd8826a75.jpg">
+		<h3>Weather App</h3>
+		<p>I built this Weather App as a web-based application that allows users to search for weather information by city to provide current temperature, and time. Using JavaScript, HTML, and CSS. I focused on making the app responsive, ensuring it works seamlessly across both desktop and mobile devices, while keeping the design clean and intuitive for easy navigation. By integrating live data from a weather API, this project allowed me to strengthen my skills in working with real-time data, implementing responsive design, creating a clean, user-friendly interface., and developing interactive web applications.</p>
+		<a href="http://127.0.0.1:5500/weather.html" target="_blank" class="project-link">View Project</a>
+	</div>
+
+	<!-- Project 3 -->
+	<div class="project-card">
+		<img src="https://uizard.io/static/506c368e099143b90d1f980de96110d4/a8e47/158d506a2231bbf328f303a4bb2fe813f3ce4e45-1440x835.png">
+		<h3>Expense Tracker App</h3>
+		<p>I have created an Expense Tracker App, a web application built with HTML, CSS, and JavaScript to help users track their expenses. The app allows users to input, display, and delete expenses while automatically calculating the total amount. It uses JavaScript for real-time data updates and input validation, while CSS Flexbox ensures a responsive, clean layout. Through this project, I enhanced my skills in front-end development, form handling, dynamic table updates, and basic data management.</p>
+		<a href="http://127.0.0.1:5500/expense.html" target="_blank" class="project-link">View Project</a>
+	</div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Contact Me</h2>
+		<p style="font-size: 26px; margin: 20px;">If you'd like to connect, feel free to reach out!</p>
+		
+		<section id="contact" class="contact-form">
+			<form class = "contact-form" action="https://formspree.io/f/mjkgjqon" method="POST">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="_replyto" placeholder="Your Email" required> <!-- Fix: Added this field -->
+				<textarea name="message" placeholder="Your Message" required></textarea>
+				<button type="submit">Send</button>
+				</form>
+				
+    </div>
+</section>
+</section>
+<footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/aasthapunj" target="_blank" style="color: white;">Aastha Punj</a> | <a href="mailto:aasthapunj19@gmail.com" style="color: white;">Contact</a></p>
+</footer>
+
+<script>
+	// Add an event listener for the scroll event
+	window.addEventListener('scroll', function () {
+		let scrollPosition = window.scrollY;  // Get the vertical scroll position
+
+		// Apply the scroll position to the background image
+		document.body.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+	});
+</script>
+<script>
+	// This ensures the page scrolls to the top on page load
+	window.onload = function() {
+		// For cross-browser compatibility:
+		document.body.scrollTop = 0;  // For Safari
+		document.documentElement.scrollTop = 0;  // For Chrome, Firefox, IE, Opera
+
+		// Remove the hash (anchor) from the URL after the page loads
+		if (window.location.hash) {
+			history.pushState("", document.title, window.location.pathname + window.location.search);
+		}
+	};
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.forms[0]; // Selects the first form on the page
+
+        if (!form) {
+            console.error("❌ ERROR: No form found on this page.");
+            return;
+        }
+
+        console.log("✅ Form found:", form);
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = form.querySelector('[name="name"]').value;
+            const email = form.querySelector('[name="_replyto"]').value;
+            const message = form.querySelector('[name="message"]').value;
+
+            if (name && email && message) {
+                alert('Thank you for your message! We will get back to you soon.');
+                
+                console.log("✅ Resetting form...");
+                form.reset(); // Should work if form is selected correctly
+
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
