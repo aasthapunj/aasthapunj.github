@@ -323,50 +323,40 @@
 			margin-bottom: 10px;
 		}
 
-		.projects-container {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr); /*Ensure only 2 columns per row*/
-			gap: 20px; /* Space between the boxes */
-			margin-top: 20px;
-			justify-items: center;
-			align-items: center;
-			padding: 0 20px;
-			}
 		.projects {
 			background-color: #f4f4f4;
 			padding: 60px 20px;
 			text-align: center;
 		}
 
+		.projects-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 30px;
+			max-width: 1200px;
+			margin: 0 auto;
+			align-items: stretch;
+			padding: 0 20px;
+		}
+		
+		.project-card {
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			box-sizing: border-box;
+		}
+
+		
 		.projects h2 {
 			font-size: 2.5rem;
 			margin-bottom: 30px;
 			font-weight: bold;
-		}
-
-		/* Flexbox Layout for Project Cards */
-/* 		.projects {
-			display: flex;
-			justify-content: space-around;  /* Distribute space evenly */
-			flex-wrap: wrap;  /* Allow wrapping on smaller screens */
-			align-items: center;
-			
-		}
- */
-		.project-card {
-			flex: 0 1 20%; /* Take up 20% of the available space, but not more */
-			margin: 10px;
-			padding: 20px;
-			background-color: white;
-			border-radius: px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			box-sizing: border-box;
-			width: 90%;
-			display: flex;
-    			flex-direction: column;
-    			justify-content: space-between;
-			
 		}
 
 		.project-card img {
